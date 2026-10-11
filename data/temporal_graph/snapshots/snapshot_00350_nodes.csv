@@ -1,0 +1,294 @@
+event_id,event_name,event_type,data_source_id,road_names,description,start_time,end_time,start_date_verified,end_date_verified,start_position_verified,end_position_verified,workers_present,start_lon,start_lat,end_lon,end_lat,centroid_lon,centroid_lat,geometry_length_km,duration_hours,duration_days,start_hour_utc,start_day_of_week_utc,start_month_utc,vehicle_impact_score,timestamps_valid,timestamps_ordered,duration_consistency_error_hours,duration_consistent,duration_valid,duration_over_365_days,start_year_utc,end_hour_utc,end_day_of_week_utc,end_month_utc,start_hour_sin,start_hour_cos,start_day_sin,start_day_cos,endpoint_straight_distance_km,geometry_to_straight_distance_ratio,coordinates_valid,start_date_verified_feature,end_date_verified_feature,start_position_verified_feature,end_position_verified_feature,workers_present_feature,verified_fields_count,vehicle_impact_all-lanes-closed,vehicle_impact_some-lanes-closed,work_zone_type_planned-moving-area,work_zone_type_static,location_method_other,worker_presence_method_check-in-app,worker_presence_confidence_medium,geometry_type_LineString
+008fcc5a-9120-53c9-8cc4-90e711f4bbc3,CPO/DENUCCI  - RUTLAND DR 2400 BLK - TRANSPORTATION AND MOBILITY IMPROVEMENTS - BURN C4,work-zone,94f42b9d-2c02-506a-a0eb-d9d3c1e50edb,RUTLAND DR,"Excavation Permit has been issued for this location. 
+ Details: BURN C4 IFB (US183 to Bright Verde Way) - TRANSPORTATION AND MOBILITY IMPROVEMENTS - 
+2016 Mobility Bond Project Burnet Road. Installing new roadway, curbs, landscaping, traffic signal improvements, and storm drainage improvements. Utility relocations associated with the CIP construction: Subsurface relocations for AW, AT&T, TGS & MCI. Surface relocations for AE, AW & AT&T. OH comm transfers for AT&T, ATD, Charter, MCI, & Grande. Ref: UCC-170629-06-01.
+
+BURN C4 - RUTLAND DR 2400-2522 BLK - Design, construction of safety and mobility improvements including upgraded bicycle and pedestrian facilities, intersection improvements, drainage improvements, upgraded signals, and bus stop improvements. 
+Cut Type: Sidewalk, street, and C&G cuts. DIMENSIONS: 275LF x 9LF
+
+ROW INSPECTOR: ANTHONY CITY
+CPO PROJECT MANAGER: JOSEPH ATIKA - JOSEPH.ATIKA@AUSTINTEXAS.GOV
+CPO CONTACT: ABBIE SPRITZER - ABBIGALE.SPRITZER@AUSTINTEXAS.GOV - (O) 512-974-8012
+
+CONTRACTORS BEING USED:
+DENUCCI
+ALL POINTS INSPECTION SERVICES
+ALPHA PAVING
+DIJ CONSTRUCTION
+HAYDEN CONCRETE
+MG DRILLING
+TEXAS MATERIAL GROUP",2026-01-30 16:31:00+00:00,2027-10-19 15:33:00+00:00,False,False,False,False,False,-97.720964841863,30.38241085550401,-97.72408573132,30.383431500076,-97.7225252865915,30.382921177790003,0.3201586047196228,15047.033333333333,626.9597222222222,16,4,1,1,1,1,0.0,1,1,1,2026,15,1,10,-0.8660254037844385,-0.5000000000000004,-0.433883739117558,-0.9009688679024191,0.320158162498905,1.000001381257046,1,0,0,0,0,0,0,0,1,0,1,1,1,1,1
+09ed7342-a72f-5721-849b-4ce8a641d352,WorkZone Event,work-zone,94f42b9d-2c02-506a-a0eb-d9d3c1e50edb,NOWOTNY LN,Excavation Permit has been issued for this location.,2027-09-02 05:00:00+00:00,2027-11-02 05:00:00+00:00,False,False,False,False,False,-97.7016313333414,30.257487131762385,-97.70122117252336,30.2581823384226,-97.70142625293238,30.25783473509249,0.086762728711727,1464.0,61.0,5,3,9,2,1,1,0.0,1,1,0,2027,5,1,11,0.9659258262890684,0.2588190451025207,0.4338837391175582,-0.900968867902419,0.0867626088701229,1.0000013812586512,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1
+101dd062-cee5-5d94-af2f-d691c2c1f9ea,CPO/DENUCCI - WATERFORD CENTRE BLVD 9235 BLK - TRANSPORT AND MOBILITY IMPROVEMENTS - BURN C4,work-zone,94f42b9d-2c02-506a-a0eb-d9d3c1e50edb,WATERFORD CENTRE BLVD,"Excavation Permit has been issued for this location. 
+ Details: BURN C4 IFB (US183 to Bright Verde Way) - TRANSPORTATION AND MOBILITY IMPROVEMENTS - 
+2016 Mobility Bond Project Burnet Road. Installing new roadway, curbs, landscaping, traffic signal improvements, and storm drainage improvements. Utility relocations associated with the CIP construction: Subsurface relocations for AW, AT&T, TGS & MCI. Surface relocations for AE, AW & AT&T. OH comm transfers for AT&T, ATD, Charter, MCI, & Grande. Ref: UCC-170629-06-01.
+
+BURN C4 - WATERFORD CENTRE 9235 BLK - Design, construction of safety and mobility improvements including upgraded bicycle and pedestrian facilities, intersection improvements, drainage improvements, upgraded signals, and bus stop improvements. 
+Cut Type: Sidewalk, street, and C&G cuts. DIMENSIONS: 80 LF x 9LF
+
+ROW INSPECTOR: ANTHONY CITY
+CPO PROJECT MANAGER: JOSEPH ATIKA - JOSEPH.ATIKA@AUSTINTEXAS.GOV
+CPO CONTACT: ABBIE SPRITZER - ABBIGALE.SPRITZER@AUSTINTEXAS.GOV - (O) 512-974-8012
+
+CONTRACTORS BEING USED:
+DENUCCI
+ALL POINTS INSPECTION SERVICES
+ALPHA PAVING
+DIJ CONSTRUCTION
+HAYDEN CONCRETE
+MG DRILLING
+TEXAS MATERIAL GROUP",2026-01-30 16:31:00+00:00,2027-10-19 15:33:00+00:00,False,False,False,False,False,-97.72687940316987,30.37753717466116,-97.7254735543871,30.377363127617485,-97.72634256034476,30.377523671781905,0.1398723713417042,15047.033333333333,626.9597222222222,16,4,1,1,1,1,0.0,1,1,1,2026,15,1,10,-0.8660254037844385,-0.5000000000000004,-0.433883739117558,-0.9009688679024191,0.1362436084268846,1.026634371745717,1,0,0,0,0,0,0,0,1,0,1,1,1,1,1
+22a834fb-6d42-5074-9f16-b58ec6022d18,AE/Mastec/Primoris/Renegade - W ST JOHNS AVE 1801 - NEW POLE INST,work-zone,94f42b9d-2c02-506a-a0eb-d9d3c1e50edb,W ST JOHNS AVE,"Excavation Permit has been issued for this location. 
+ Details: WO713367 - Project Address 1801 W St Johns Ave - Austin Energy / Mastec/ Primoris /Renegade will install (5) poles at WPs 1, 3, 6, 8, & 10, (5) 2 ft x 2 ft cuts, behind the curb, work area (each WP) 12ft x 30ft. 10/21/26 - 12/21/26. ",2026-10-21 05:00:00+00:00,2027-12-21 06:00:00+00:00,False,False,False,False,False,-97.72644681886672,30.34271659068841,-97.73001366201257,30.34445615855557,-97.72823024043964,30.343586374621992,0.393158751706895,10225.0,426.0416666666667,5,2,10,1,1,1,0.0,1,1,1,2026,6,1,12,0.9659258262890684,0.2588190451025207,0.9749279121818236,-0.2225209339563143,0.3931582086540038,1.0000013812579245,1,0,0,0,0,0,0,0,1,0,1,1,1,1,1
+4398c170-b18c-5f67-8e80-795fcaf16d05,CPO/DENUCCI - LONGHORN BLVD 2600 BLK - TRANSPORTATION AND MOBILITY IMPROVEMENTS - BURN C4,work-zone,94f42b9d-2c02-506a-a0eb-d9d3c1e50edb,LONGHORN BLVD,"Excavation Permit has been issued for this location. 
+ Details: BURN C4 IFB (US183 to Bright Verde Way) - TRANSPORTATION AND MOBILITY IMPROVEMENTS - 
+2016 Mobility Bond Project Burnet Road. Installing new roadway, curbs, landscaping, traffic signal improvements, and storm drainage improvements. Utility relocations associated with the CIP construction: Subsurface relocations for AW, AT&T, TGS & MCI. Surface relocations for AE, AW & AT&T. OH comm transfers for AT&T, ATD, Charter, MCI, & Grande. Ref: UCC-170629-06-01.
+
+BURN C4 - LONGHORN BLVD 2600-2725 BLK - Design, construction of safety and mobility improvements including upgraded bicycle and pedestrian facilities, intersection improvements, drainage improvements, upgraded signals, and bus stop improvements. 
+Cut Type: Sidewalk, street, and C&G cuts. DIMENSIONS: 100 LF x 9LF
+
+ROW INSPECTOR: ANTHONY CITY
+CPO PROJECT MANAGER: JOSEPH ATIKA - JOSEPH.ATIKA@AUSTINTEXAS.GOV
+CPO CONTACT: ABBIE SPRITZER - ABBIGALE.SPRITZER@AUSTINTEXAS.GOV - (O) 512-974-8012
+
+CONTRACTORS BEING USED:
+DENUCCI
+ALL POINTS INSPECTION SERVICES
+ALPHA PAVING
+DIJ CONSTRUCTION
+HAYDEN CONCRETE
+MG DRILLING
+TEXAS MATERIAL GROUP",2026-01-30 16:31:00+00:00,2027-10-19 15:33:00+00:00,False,False,False,False,False,-97.72488857917452,30.38001324810633,-97.72648231878404,30.380788258585323,-97.72550465595836,30.38031181777601,0.1754981660852951,15047.033333333333,626.9597222222222,16,4,1,1,1,1,0.0,1,1,1,2026,15,1,10,-0.8660254037844385,-0.5000000000000004,-0.433883739117558,-0.9009688679024191,0.1754973621009681,1.0000045811761349,1,0,0,0,0,0,0,0,1,0,1,1,1,1,1
+4c154bf8-2e6c-51bd-a92f-ed3373dbb833,CIP - AWP/SCC - W Oak Blvd 5628-5647 blk - Barton Creek Oak Acres Flood Risk Reduction,work-zone,94f42b9d-2c02-506a-a0eb-d9d3c1e50edb,W OAK BLVD,"Excavation Permit has been issued for this location. 
+ Details: Excavation will take place within the travel lane and behind the edge of road. 4 cuts approximately 5' x 50'",2026-04-15 05:00:00+00:00,2027-10-15 05:00:00+00:00,False,False,False,False,False,-97.850415225947,30.237618441532003,-97.848828843234,30.239777572535,-97.84954378592228,30.238867369382145,0.2892867455946724,13152.0,548.0,5,2,4,1,1,1,0.0,1,1,1,2026,5,4,10,0.9659258262890684,0.2588190451025207,0.9749279121818236,-0.2225209339563143,0.2843679064566202,1.0172974482224226,1,0,0,0,0,0,0,0,1,0,1,1,1,1,1
+5e640b5b-e87a-51cc-9b50-ca814a7fb14e,CPO/DENUCCI - MCNEIL RD 9200-9600 BLK - TRANSPORTATION AND MOBILITY IMPROVEMENTS - BURN C4,work-zone,94f42b9d-2c02-506a-a0eb-d9d3c1e50edb,MC NEIL RD,"Excavation Permit has been issued for this location. 
+ Details: BURN C4 IFB (US183 to Bright Verde Way) - TRANSPORTATION AND MOBILITY IMPROVEMENTS - 
+2016 Mobility Bond Project Burnet Road. Installing new roadway, curbs, landscaping, traffic signal improvements, and storm drainage improvements. Utility relocations associated with the CIP construction: Subsurface relocations for AW, AT&T, TGS & MCI. Surface relocations for AE, AW & AT&T. OH comm transfers for AT&T, ATD, Charter, MCI, & Grande. Ref: UCC-170629-06-01.
+
+BURN C4 - MC NEIL DR 9200-9600 BLK - Design, construction of safety and mobility improvements including upgraded bicycle and pedestrian facilities, intersection improvements, drainage improvements, upgraded signals, and bus stop improvements. 
+Cut Type: Sidewalk, street, and C&G cuts. DIMENSIONS: 1800LF x 9LF
+
+ROW INSPECTOR: ANTHONY CITY
+CPO PROJECT MANAGER: JOSEPH ATIKA - JOSEPH.ATIKA@AUSTINTEXAS.GOV
+CPO CONTACT: ABBIE SPRITZER - ABBIGALE.SPRITZER@AUSTINTEXAS.GOV - (O) 512-974-8012
+
+CONTRACTORS BEING USED:
+DENUCCI
+ALL POINTS INSPECTION SERVICES
+ALPHA PAVING
+DIJ CONSTRUCTION
+HAYDEN CONCRETE
+MG DRILLING
+TEXAS MATERIAL GROUP",2026-01-30 06:00:00+00:00,2027-10-19 15:33:00+00:00,False,False,False,False,False,-97.72457516114102,30.377119202429185,-97.72593958713486,30.3752274644694,-97.72565291438823,30.37547187031016,0.2514290433265161,15057.55,627.3979166666667,6,4,1,1,1,1,0.0,1,1,1,2026,15,1,10,1.0,6.123233995736766e-17,-0.433883739117558,-0.9009688679024191,0.2477499644083221,1.0148499674943663,1,0,0,0,0,0,0,0,1,0,1,1,1,1,1
+601cde77-33b3-59f7-bf08-6353d5a26756,CPO/DENUCCI - BURNET RD 8700-8800 BLK - TRANSPORTATION AND MOBILITY IMPROVEMENTS - BURN C4,work-zone,94f42b9d-2c02-506a-a0eb-d9d3c1e50edb,BURNET RD,"Excavation Permit has been issued for this location. 
+ Details: BURN C4 IFB (US183 to Bright Verde Way) - TRANSPORTATION AND MOBILITY IMPROVEMENTS - 
+2016 Mobility Bond Project Burnet Road. Installing new roadway, curbs, landscaping, traffic signal improvements, and storm drainage improvements. Utility relocations associated with the CIP construction: Subsurface relocations for AW, AT&T, TGS & MCI. Surface relocations for AE, AW & AT&T. OH comm transfers for AT&T, ATD, Charter, MCI, & Grande. Ref: UCC-170629-06-01.
+
+BURN C4 - BURNET RD 8700-8800 BLK - Design, construction of safety and mobility improvements including upgraded bicycle and pedestrian facilities, intersection improvements, drainage improvements, upgraded signals, and bus stop improvements. 
+Cut Type: Sidewalk, street, and C&G cuts. DIMENSIONS: 660LF x 9LF
+
+ROW INSPECTOR: ANTHONY CITY
+CPO PROJECT MANAGER: JOSEPH ATIKA - JOSEPH.ATIKA@AUSTINTEXAS.GOV
+CPO CONTACT: ABBIE SPRITZER - ABBIGALE.SPRITZER@AUSTINTEXAS.GOV - (O) 512-974-8012
+
+CONTRACTORS BEING USED:
+DENUCCI
+ALL POINTS INSPECTION SERVICES
+ALPHA PAVING
+DIJ CONSTRUCTION
+HAYDEN CONCRETE
+MG DRILLING
+TEXAS MATERIAL GROUP",2026-01-30 16:31:00+00:00,2027-10-19 15:33:00+00:00,False,False,False,False,False,-97.72690733016,30.37125621720006,-97.7264902890682,30.372895894600514,-97.72670205605276,30.37260000820384,0.1983861112355553,15047.033333333333,626.9597222222222,16,4,1,1,1,1,0.0,1,1,1,2026,15,1,10,-0.8660254037844385,-0.5000000000000004,-0.433883739117558,-0.9009688679024191,0.1866618956652386,1.062809903052431,1,0,0,0,0,0,0,0,1,0,1,1,1,1,1
+7e391bdf-dbd9-57e2-81d1-e8bedef9b0d0,CPO/DENUCCI - MCNEIL RD 9200-9600 BLK - TRANSPORTATION AND MOBILITY IMPROVEMENTS - BURN C4,work-zone,94f42b9d-2c02-506a-a0eb-d9d3c1e50edb,MC NEIL RD,"Excavation Permit has been issued for this location. 
+ Details: BURN C4 IFB (US183 to Bright Verde Way) - TRANSPORTATION AND MOBILITY IMPROVEMENTS - 
+2016 Mobility Bond Project Burnet Road. Installing new roadway, curbs, landscaping, traffic signal improvements, and storm drainage improvements. Utility relocations associated with the CIP construction: Subsurface relocations for AW, AT&T, TGS & MCI. Surface relocations for AE, AW & AT&T. OH comm transfers for AT&T, ATD, Charter, MCI, & Grande. Ref: UCC-170629-06-01.
+
+BURN C4 - MC NEIL DR 9200-9600 BLK - Design, construction of safety and mobility improvements including upgraded bicycle and pedestrian facilities, intersection improvements, drainage improvements, upgraded signals, and bus stop improvements. 
+Cut Type: Sidewalk, street, and C&G cuts. DIMENSIONS: 1800LF x 9LF
+
+ROW INSPECTOR: ANTHONY CITY
+CPO PROJECT MANAGER: JOSEPH ATIKA - JOSEPH.ATIKA@AUSTINTEXAS.GOV
+CPO CONTACT: ABBIE SPRITZER - ABBIGALE.SPRITZER@AUSTINTEXAS.GOV - (O) 512-974-8012
+
+CONTRACTORS BEING USED:
+DENUCCI
+ALL POINTS INSPECTION SERVICES
+ALPHA PAVING
+DIJ CONSTRUCTION
+HAYDEN CONCRETE
+MG DRILLING
+TEXAS MATERIAL GROUP",2026-01-30 06:00:00+00:00,2027-10-19 15:33:00+00:00,False,False,False,False,False,-97.72458629901176,30.3771244659828,-97.72398917999838,30.3780633583127,-97.72428773950509,30.37759391214775,0.119082066324687,15057.55,627.3979166666667,6,4,1,1,1,1,0.0,1,1,1,2026,15,1,10,1.0,6.123233995736766e-17,-0.433883739117558,-0.9009688679024191,0.1190819018411657,1.0000013812638082,1,0,0,0,0,0,0,0,1,0,1,1,1,1,1
+a3e83735-6821-5caa-9259-78fc7ed7ad97,WorkZone Event,work-zone,94f42b9d-2c02-506a-a0eb-d9d3c1e50edb,NOWOTNY LN,Excavation Permit has been issued for this location.,2027-09-02 05:00:00+00:00,2027-11-02 05:00:00+00:00,False,False,False,False,False,-97.70120989612496,30.258177324697225,-97.70162005700288,30.25748211807335,-97.70141497656392,30.257829721385285,0.0867627286354076,1464.0,61.0,5,3,9,2,1,1,0.0,1,1,0,2027,5,1,11,0.9659258262890684,0.2588190451025207,0.4338837391175582,-0.900968867902419,0.0867626087937163,1.000001381259657,1,0,0,0,0,0,0,1,0,0,1,1,1,1,1
+b0eba17e-b282-5a4b-92cd-947e22a636d7,CPO/DENUCCI - WATERFORD CENTRE BLVD 9235 BLK - TRANSPORT AND MOBILITY IMPROVEMENTS - BURN C4,work-zone,94f42b9d-2c02-506a-a0eb-d9d3c1e50edb,WATERFORD CENTRE BLVD,"Excavation Permit has been issued for this location. 
+ Details: BURN C4 IFB (US183 to Bright Verde Way) - TRANSPORTATION AND MOBILITY IMPROVEMENTS - 
+2016 Mobility Bond Project Burnet Road. Installing new roadway, curbs, landscaping, traffic signal improvements, and storm drainage improvements. Utility relocations associated with the CIP construction: Subsurface relocations for AW, AT&T, TGS & MCI. Surface relocations for AE, AW & AT&T. OH comm transfers for AT&T, ATD, Charter, MCI, & Grande. Ref: UCC-170629-06-01.
+
+BURN C4 - WATERFORD CENTRE 9235 BLK - Design, construction of safety and mobility improvements including upgraded bicycle and pedestrian facilities, intersection improvements, drainage improvements, upgraded signals, and bus stop improvements. 
+Cut Type: Sidewalk, street, and C&G cuts. DIMENSIONS: 80 LF x 9LF
+
+ROW INSPECTOR: ANTHONY CITY
+CPO PROJECT MANAGER: JOSEPH ATIKA - JOSEPH.ATIKA@AUSTINTEXAS.GOV
+CPO CONTACT: ABBIE SPRITZER - ABBIGALE.SPRITZER@AUSTINTEXAS.GOV - (O) 512-974-8012
+
+CONTRACTORS BEING USED:
+DENUCCI
+ALL POINTS INSPECTION SERVICES
+ALPHA PAVING
+DIJ CONSTRUCTION
+HAYDEN CONCRETE
+MG DRILLING
+TEXAS MATERIAL GROUP",2026-01-30 16:31:00+00:00,2027-10-19 15:33:00+00:00,False,False,False,False,False,-97.726876222336,30.377532416994004,-97.72547700167,30.377358511589,-97.72626696704658,30.37742051083828,0.1401217994567391,15047.033333333333,626.9597222222222,16,4,1,1,1,1,0.0,1,1,1,2026,15,1,10,-0.8660254037844385,-0.5000000000000004,-0.433883739117558,-0.9009688679024191,0.1356120151924428,1.033255049398806,1,0,0,0,0,0,0,0,1,0,1,1,1,1,1
+b1308439-fa09-542c-bcaa-650727d2bad2,CPO/DENUCCI - MCNEIL RD 9200-9600 BLK - TRANSPORTATION AND MOBILITY IMPROVEMENTS - BURN C4,work-zone,94f42b9d-2c02-506a-a0eb-d9d3c1e50edb,MC NEIL RD,"Excavation Permit has been issued for this location. 
+ Details: BURN C4 IFB (US183 to Bright Verde Way) - TRANSPORTATION AND MOBILITY IMPROVEMENTS - 
+2016 Mobility Bond Project Burnet Road. Installing new roadway, curbs, landscaping, traffic signal improvements, and storm drainage improvements. Utility relocations associated with the CIP construction: Subsurface relocations for AW, AT&T, TGS & MCI. Surface relocations for AE, AW & AT&T. OH comm transfers for AT&T, ATD, Charter, MCI, & Grande. Ref: UCC-170629-06-01.
+
+BURN C4 - MC NEIL DR 9200-9600 BLK - Design, construction of safety and mobility improvements including upgraded bicycle and pedestrian facilities, intersection improvements, drainage improvements, upgraded signals, and bus stop improvements. 
+Cut Type: Sidewalk, street, and C&G cuts. DIMENSIONS: 1800LF x 9LF
+
+ROW INSPECTOR: ANTHONY CITY
+CPO PROJECT MANAGER: JOSEPH ATIKA - JOSEPH.ATIKA@AUSTINTEXAS.GOV
+CPO CONTACT: ABBIE SPRITZER - ABBIGALE.SPRITZER@AUSTINTEXAS.GOV - (O) 512-974-8012
+
+CONTRACTORS BEING USED:
+DENUCCI
+ALL POINTS INSPECTION SERVICES
+ALPHA PAVING
+DIJ CONSTRUCTION
+HAYDEN CONCRETE
+MG DRILLING
+TEXAS MATERIAL GROUP",2026-01-30 06:00:00+00:00,2027-10-19 15:33:00+00:00,False,False,False,False,False,-97.72474667544252,30.38055119252561,-97.72397738322024,30.378061675037184,-97.72447873583096,30.38034263886004,0.3000336932942466,15057.55,627.3979166666667,6,4,1,1,1,1,0.0,1,1,1,2026,15,1,10,1.0,6.123233995736766e-17,-0.433883739117558,-0.9009688679024191,0.2864893506171123,1.0472769499039287,1,0,0,0,0,0,0,0,1,0,1,1,1,1,1
+b9e1df97-e2c5-5989-9077-5aa6b0c3f597,AE/Mastec/Primoris/Renegade - W ST JOHNS AVE 1801 - NEW POLE INST,work-zone,94f42b9d-2c02-506a-a0eb-d9d3c1e50edb,W ST JOHNS AVE,"Excavation Permit has been issued for this location. 
+ Details: WO713367 - Project Address 1801 W St Johns Ave - Austin Energy / Mastec/ Primoris /Renegade will install (5) poles at WPs 1, 3, 6, 8, & 10, (5) 2 ft x 2 ft cuts, behind the curb, work area (each WP) 12ft x 30ft. 10/21/26 - 12/21/26. ",2026-10-21 05:00:00+00:00,2027-12-21 06:00:00+00:00,False,False,False,False,False,-97.7300136387278,30.34445614725586,-97.73296864130124,30.3458830330945,-97.73149114001453,30.34516959017518,0.3249355199743203,10225.0,426.0416666666667,5,2,10,1,1,1,0.0,1,1,1,2026,6,1,12,0.9659258262890684,0.2588190451025207,0.9749279121818236,-0.2225209339563143,0.3249350711547822,1.0000013812591435,1,0,0,0,0,0,0,0,1,0,1,1,1,1,1
+ba069dae-60a0-5a01-8742-bf827b943148,CPO/DENUCCI - MCNEIL RD 9200-9600 BLK - TRANSPORTATION AND MOBILITY IMPROVEMENTS - BURN C4,work-zone,94f42b9d-2c02-506a-a0eb-d9d3c1e50edb,MC NEIL RD,"Excavation Permit has been issued for this location. 
+ Details: BURN C4 IFB (US183 to Bright Verde Way) - TRANSPORTATION AND MOBILITY IMPROVEMENTS - 
+2016 Mobility Bond Project Burnet Road. Installing new roadway, curbs, landscaping, traffic signal improvements, and storm drainage improvements. Utility relocations associated with the CIP construction: Subsurface relocations for AW, AT&T, TGS & MCI. Surface relocations for AE, AW & AT&T. OH comm transfers for AT&T, ATD, Charter, MCI, & Grande. Ref: UCC-170629-06-01.
+
+BURN C4 - MC NEIL DR 9200-9600 BLK - Design, construction of safety and mobility improvements including upgraded bicycle and pedestrian facilities, intersection improvements, drainage improvements, upgraded signals, and bus stop improvements. 
+Cut Type: Sidewalk, street, and C&G cuts. DIMENSIONS: 1800LF x 9LF
+
+ROW INSPECTOR: ANTHONY CITY
+CPO PROJECT MANAGER: JOSEPH ATIKA - JOSEPH.ATIKA@AUSTINTEXAS.GOV
+CPO CONTACT: ABBIE SPRITZER - ABBIGALE.SPRITZER@AUSTINTEXAS.GOV - (O) 512-974-8012
+
+CONTRACTORS BEING USED:
+DENUCCI
+ALL POINTS INSPECTION SERVICES
+ALPHA PAVING
+DIJ CONSTRUCTION
+HAYDEN CONCRETE
+MG DRILLING
+TEXAS MATERIAL GROUP",2026-01-30 06:00:00+00:00,2027-10-19 15:33:00+00:00,False,False,False,False,False,-97.72398986855563,30.3780597306965,-97.7247497046333,30.3805405122564,-97.7244506604682,30.37999747639657,0.2985898313366703,15057.55,627.3979166666667,6,4,1,1,1,1,0.0,1,1,1,2026,15,1,10,1.0,6.123233995736766e-17,-0.433883739117558,-0.9009688679024191,0.2853177688096562,1.0465167752516256,1,0,0,0,0,0,0,0,1,0,1,1,1,1,1
+c16a1048-5872-5a1d-a648-c0a4a6bb8305,CPO/DENUCCI - MCNEIL RD 9200-9600 BLK - TRANSPORTATION AND MOBILITY IMPROVEMENTS - BURN C4,work-zone,94f42b9d-2c02-506a-a0eb-d9d3c1e50edb,MC NEIL RD,"Excavation Permit has been issued for this location. 
+ Details: BURN C4 IFB (US183 to Bright Verde Way) - TRANSPORTATION AND MOBILITY IMPROVEMENTS - 
+2016 Mobility Bond Project Burnet Road. Installing new roadway, curbs, landscaping, traffic signal improvements, and storm drainage improvements. Utility relocations associated with the CIP construction: Subsurface relocations for AW, AT&T, TGS & MCI. Surface relocations for AE, AW & AT&T. OH comm transfers for AT&T, ATD, Charter, MCI, & Grande. Ref: UCC-170629-06-01.
+
+BURN C4 - MC NEIL DR 9200-9600 BLK - Design, construction of safety and mobility improvements including upgraded bicycle and pedestrian facilities, intersection improvements, drainage improvements, upgraded signals, and bus stop improvements. 
+Cut Type: Sidewalk, street, and C&G cuts. DIMENSIONS: 1800LF x 9LF
+
+ROW INSPECTOR: ANTHONY CITY
+CPO PROJECT MANAGER: JOSEPH ATIKA - JOSEPH.ATIKA@AUSTINTEXAS.GOV
+CPO CONTACT: ABBIE SPRITZER - ABBIGALE.SPRITZER@AUSTINTEXAS.GOV - (O) 512-974-8012
+
+CONTRACTORS BEING USED:
+DENUCCI
+ALL POINTS INSPECTION SERVICES
+ALPHA PAVING
+DIJ CONSTRUCTION
+HAYDEN CONCRETE
+MG DRILLING
+TEXAS MATERIAL GROUP",2026-01-30 06:00:00+00:00,2027-10-19 15:33:00+00:00,False,False,False,False,False,-97.72594410673736,30.375237741096583,-97.72458632873727,30.37712441869665,-97.72557474716152,30.375626611257616,0.2505588172209036,15057.55,627.3979166666667,6,4,1,1,1,1,0.0,1,1,1,2026,15,1,10,1.0,6.123233995736766e-17,-0.433883739117558,-0.9009688679024191,0.2469354010863483,1.0146735385797852,1,0,0,0,0,0,0,0,1,0,1,1,1,1,1
+c4133bd4-3836-5420-942e-031a849eed5b,CPO/DENUCCI - BURNET RD 8700-8800 BLK - TRANSPORTATION AND MOBILITY IMPROVEMENTS - BURN C4,work-zone,94f42b9d-2c02-506a-a0eb-d9d3c1e50edb,BURNET RD,"Excavation Permit has been issued for this location. 
+ Details: BURN C4 IFB (US183 to Bright Verde Way) - TRANSPORTATION AND MOBILITY IMPROVEMENTS - 
+2016 Mobility Bond Project Burnet Road. Installing new roadway, curbs, landscaping, traffic signal improvements, and storm drainage improvements. Utility relocations associated with the CIP construction: Subsurface relocations for AW, AT&T, TGS & MCI. Surface relocations for AE, AW & AT&T. OH comm transfers for AT&T, ATD, Charter, MCI, & Grande. Ref: UCC-170629-06-01.
+
+BURN C4 - BURNET RD 8700-8800 BLK - Design, construction of safety and mobility improvements including upgraded bicycle and pedestrian facilities, intersection improvements, drainage improvements, upgraded signals, and bus stop improvements. 
+Cut Type: Sidewalk, street, and C&G cuts. DIMENSIONS: 660LF x 9LF
+
+ROW INSPECTOR: ANTHONY CITY
+CPO PROJECT MANAGER: JOSEPH ATIKA - JOSEPH.ATIKA@AUSTINTEXAS.GOV
+CPO CONTACT: ABBIE SPRITZER - ABBIGALE.SPRITZER@AUSTINTEXAS.GOV - (O) 512-974-8012
+
+CONTRACTORS BEING USED:
+DENUCCI
+ALL POINTS INSPECTION SERVICES
+ALPHA PAVING
+DIJ CONSTRUCTION
+HAYDEN CONCRETE
+MG DRILLING
+TEXAS MATERIAL GROUP",2026-01-30 16:31:00+00:00,2027-10-19 15:33:00+00:00,False,False,False,False,False,-97.72648427990347,30.37289355642048,-97.72689514840503,30.371253845038435,-97.72652509157427,30.37232367175993,0.1922216656439903,15047.033333333333,626.9597222222222,16,4,1,1,1,1,0.0,1,1,1,2026,15,1,10,-0.8660254037844385,-0.5000000000000004,-0.433883739117558,-0.9009688679024191,0.1865395627436546,1.0304605779962297,1,0,0,0,0,0,0,0,1,0,1,1,1,1,1
+c9cad129-fc3d-5b2e-b2af-69bddad05573,CPO/DENUCCI - MCHALE CT 2500 BLK - TRANSPORTATION AND MOBILITY IMPROVEMENTS - BURN C4,work-zone,94f42b9d-2c02-506a-a0eb-d9d3c1e50edb,MC HALE CT,"Excavation Permit has been issued for this location. 
+ Details: BURN C4 IFB (US183 to Bright Verde Way) - TRANSPORTATION AND MOBILITY IMPROVEMENTS - 
+2016 Mobility Bond Project Burnet Road. Installing new roadway, curbs, landscaping, traffic signal improvements, and storm drainage improvements. Utility relocations associated with the CIP construction: Subsurface relocations for AW, AT&T, TGS & MCI. Surface relocations for AE, AW & AT&T. OH comm transfers for AT&T, ATD, Charter, MCI, & Grande. Ref: UCC-170629-06-01.
+
+BURN C4 - MC HLAE CT 2501 - 2612 BLK - Design, construction of safety and mobility improvements including upgraded bicycle and pedestrian facilities, intersection improvements, drainage improvements, upgraded signals, and bus stop improvements. 
+Cut Type: Sidewalk, street, and C&G cuts. DIMENSIONS: 175LF x 9LF
+
+ROW INSPECTOR: ANTHONY CITY
+CPO PROJECT MANAGER: JOSEPH ATIKA - JOSEPH.ATIKA@AUSTINTEXAS.GOV
+CPO CONTACT: ABBIE SPRITZER - ABBIGALE.SPRITZER@AUSTINTEXAS.GOV - (O) 512-974-8012
+
+CONTRACTORS BEING USED:
+DENUCCI
+ALL POINTS INSPECTION SERVICES
+ALPHA PAVING
+DIJ CONSTRUCTION
+HAYDEN CONCRETE
+MG DRILLING
+TEXAS MATERIAL GROUP",2026-01-30 16:31:00+00:00,2027-10-19 15:33:00+00:00,False,False,False,False,False,-97.721809442826,30.384839934736007,-97.723631502754,30.385543070867005,-97.72295486501169,30.38527154598067,0.1917111624343796,15047.033333333333,626.9597222222222,16,4,1,1,1,1,0.0,1,1,1,2026,15,1,10,-0.8660254037844385,-0.5000000000000004,-0.433883739117558,-0.9009688679024191,0.1914660316311421,1.001280283511123,1,0,0,0,0,0,0,0,1,0,1,1,1,1,1
+e197d4cf-e517-5e1b-bd97-0fe1fa3ad249,CPO/DENUCCI - MCNEIL RD 9200-9600 BLK - TRANSPORTATION AND MOBILITY IMPROVEMENTS - BURN C4,work-zone,94f42b9d-2c02-506a-a0eb-d9d3c1e50edb,MC NEIL RD,"Excavation Permit has been issued for this location. 
+ Details: BURN C4 IFB (US183 to Bright Verde Way) - TRANSPORTATION AND MOBILITY IMPROVEMENTS - 
+2016 Mobility Bond Project Burnet Road. Installing new roadway, curbs, landscaping, traffic signal improvements, and storm drainage improvements. Utility relocations associated with the CIP construction: Subsurface relocations for AW, AT&T, TGS & MCI. Surface relocations for AE, AW & AT&T. OH comm transfers for AT&T, ATD, Charter, MCI, & Grande. Ref: UCC-170629-06-01.
+
+BURN C4 - MC NEIL DR 9200-9600 BLK - Design, construction of safety and mobility improvements including upgraded bicycle and pedestrian facilities, intersection improvements, drainage improvements, upgraded signals, and bus stop improvements. 
+Cut Type: Sidewalk, street, and C&G cuts. DIMENSIONS: 1800LF x 9LF
+
+ROW INSPECTOR: ANTHONY CITY
+CPO PROJECT MANAGER: JOSEPH ATIKA - JOSEPH.ATIKA@AUSTINTEXAS.GOV
+CPO CONTACT: ABBIE SPRITZER - ABBIGALE.SPRITZER@AUSTINTEXAS.GOV - (O) 512-974-8012
+
+CONTRACTORS BEING USED:
+DENUCCI
+ALL POINTS INSPECTION SERVICES
+ALPHA PAVING
+DIJ CONSTRUCTION
+HAYDEN CONCRETE
+MG DRILLING
+TEXAS MATERIAL GROUP",2026-01-30 06:00:00+00:00,2027-10-19 15:33:00+00:00,False,False,False,False,False,-97.7239780717779,30.37805804742104,-97.72457519086656,30.377119155143017,-97.72427663132224,30.377588601282028,0.1190820662366811,15057.55,627.3979166666667,6,4,1,1,1,1,0.0,1,1,1,2026,15,1,10,1.0,6.123233995736766e-17,-0.433883739117558,-0.9009688679024191,0.1190819017541855,1.0000013812551964,1,0,0,0,0,0,0,0,1,0,1,1,1,1,1
+f160362a-c1ec-57de-b285-21233bfbb0c0,CPO/DENUCCI - LONGHORN BLVD 2600 BLK - TRANSPORTATION AND MOBILITY IMPROVEMENTS - BURN C4,work-zone,94f42b9d-2c02-506a-a0eb-d9d3c1e50edb,LONGHORN BLVD,"Excavation Permit has been issued for this location. 
+ Details: BURN C4 IFB (US183 to Bright Verde Way) - TRANSPORTATION AND MOBILITY IMPROVEMENTS - 
+2016 Mobility Bond Project Burnet Road. Installing new roadway, curbs, landscaping, traffic signal improvements, and storm drainage improvements. Utility relocations associated with the CIP construction: Subsurface relocations for AW, AT&T, TGS & MCI. Surface relocations for AE, AW & AT&T. OH comm transfers for AT&T, ATD, Charter, MCI, & Grande. Ref: UCC-170629-06-01.
+
+BURN C4 - LONGHORN BLVD 2600-2725 BLK - Design, construction of safety and mobility improvements including upgraded bicycle and pedestrian facilities, intersection improvements, drainage improvements, upgraded signals, and bus stop improvements. 
+Cut Type: Sidewalk, street, and C&G cuts. DIMENSIONS: 100 LF x 9LF
+
+ROW INSPECTOR: ANTHONY CITY
+CPO PROJECT MANAGER: JOSEPH ATIKA - JOSEPH.ATIKA@AUSTINTEXAS.GOV
+CPO CONTACT: ABBIE SPRITZER - ABBIGALE.SPRITZER@AUSTINTEXAS.GOV - (O) 512-974-8012
+
+CONTRACTORS BEING USED:
+DENUCCI
+ALL POINTS INSPECTION SERVICES
+ALPHA PAVING
+DIJ CONSTRUCTION
+HAYDEN CONCRETE
+MG DRILLING
+TEXAS MATERIAL GROUP",2026-01-30 16:31:00+00:00,2027-10-19 15:33:00+00:00,False,False,False,False,False,-97.72647609626362,30.3807978429446,-97.72488241929317,30.380022862809625,-97.72555872908124,30.380351062504104,0.1754912617247475,15047.033333333333,626.9597222222222,16,4,1,1,1,1,0.0,1,1,1,2026,15,1,10,-0.8660254037844385,-0.5000000000000004,-0.433883739117558,-0.9009688679024191,0.1754904577668846,1.0000045812055716,1,0,0,0,0,0,0,0,1,0,1,1,1,1,1
+fd0881ef-3044-5ee0-8aa5-a7c7216c39d7,CPO/DENUCCI - BURNET RD 8700-8800 BLK - TRANSPORTATION AND MOBILITY IMPROVEMENTS - BURN C4,work-zone,94f42b9d-2c02-506a-a0eb-d9d3c1e50edb,BURNET RD,"Excavation Permit has been issued for this location. 
+ Details: BURN C4 IFB (US183 to Bright Verde Way) - TRANSPORTATION AND MOBILITY IMPROVEMENTS - 
+2016 Mobility Bond Project Burnet Road. Installing new roadway, curbs, landscaping, traffic signal improvements, and storm drainage improvements. Utility relocations associated with the CIP construction: Subsurface relocations for AW, AT&T, TGS & MCI. Surface relocations for AE, AW & AT&T. OH comm transfers for AT&T, ATD, Charter, MCI, & Grande. Ref: UCC-170629-06-01.
+
+BURN C4 - BURNET RD 8700-8800 BLK - Design, construction of safety and mobility improvements including upgraded bicycle and pedestrian facilities, intersection improvements, drainage improvements, upgraded signals, and bus stop improvements. 
+Cut Type: Sidewalk, street, and C&G cuts. DIMENSIONS: 660LF x 9LF
+
+ROW INSPECTOR: ANTHONY CITY
+CPO PROJECT MANAGER: JOSEPH ATIKA - JOSEPH.ATIKA@AUSTINTEXAS.GOV
+CPO CONTACT: ABBIE SPRITZER - ABBIGALE.SPRITZER@AUSTINTEXAS.GOV - (O) 512-974-8012
+
+CONTRACTORS BEING USED:
+DENUCCI
+ALL POINTS INSPECTION SERVICES
+ALPHA PAVING
+DIJ CONSTRUCTION
+HAYDEN CONCRETE
+MG DRILLING
+TEXAS MATERIAL GROUP",2026-01-30 16:31:00+00:00,2027-10-19 15:33:00+00:00,False,False,False,False,False,-97.72737166253468,30.36924684707125,-97.72690721259409,30.371257058235823,-97.72713943756438,30.370251952653533,0.2279234039036376,15047.033333333333,626.9597222222222,16,4,1,1,1,1,0.0,1,1,1,2026,15,1,10,-0.8660254037844385,-0.5000000000000004,-0.433883739117558,-0.9009688679024191,0.2279230890829225,1.0000013812585482,1,0,0,0,0,0,0,0,1,0,1,1,1,1,1

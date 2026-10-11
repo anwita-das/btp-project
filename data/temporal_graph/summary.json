@@ -1,0 +1,11 @@
+{
+  "input_event_count": 4181,
+  "input_spatial_edge_count": 44434,
+  "unique_event_boundary_timestamps": 355,
+  "saved_snapshot_count": 355,
+  "earliest_event_start_utc": "2024-11-19T06:00:00+00:00",
+  "latest_event_end_utc": "2027-12-21T06:00:00+00:00",
+  "snapshot_policy": "event-boundary structural changes",
+  "activity_interval": "start_time <= t < end_time",
+  "timezone": "UTC"
+}

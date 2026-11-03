@@ -1,30 +1,8 @@
 
-"""
-Build change-driven temporal graph snapshots from WZDx data.
-
-Inputs:
-    data/wzdx_features.csv
-    data/graph/edges.csv
-
-Outputs:
-    data/temporal_graph/snapshots/snapshot_00000_nodes.csv
-    data/temporal_graph/snapshots/snapshot_00000_edges.csv
-    ...
-    data/temporal_graph/snapshot_index.csv
-
-Each node represents a WZDx work-zone event.
-Each edge represents spatial proximity between two events.
-
-An event is active at time t when:
-    start_time <= t < end_time
-
-A snapshot is saved only when the active graph structure changes.
-All timestamps are handled in UTC.
-"""
-
 from pathlib import Path
 import json
 
+import numpy as np
 import pandas as pd
 
 
@@ -37,374 +15,328 @@ BASE_DIR = Path(__file__).resolve().parent
 FEATURES_PATH = BASE_DIR / "data" / "wzdx_features.csv"
 EDGES_PATH = BASE_DIR / "data" / "graph" / "edges.csv"
 
-OUTPUT_DIR = BASE_DIR / "data" / "temporal_graph"
+OUTPUT_DIR = BASE_DIR / "data" / "new_temporal_graph"
 SNAPSHOTS_DIR = OUTPUT_DIR / "snapshots"
 
-# Half-open activity interval: start_time <= t < end_time
-# This means an event ending at t is inactive at t.
-# An event starting at t is active at t.
-
-# If True, save the active node and edge CSVs for every
-# distinct graph structure, even if only the active nodes'
-# timestamps/features differ but the IDs and edges are unchanged.
-SAVE_ONLY_STRUCTURAL_CHANGES = True
+# Fixed interval: one UTC calendar day
+INTERVAL = pd.Timedelta(days=1)
 
 
 # ============================================================
-# 2. LOAD AND VALIDATE INPUT DATA
+# 2. LOAD AND VALIDATE DATA
 # ============================================================
 
 def load_data():
-    """Load features and spatial edges, then validate columns."""
 
-    if not FEATURES_PATH.exists():
-        raise FileNotFoundError(
-            f"Features file not found: {FEATURES_PATH}"
-        )
+    for path in [FEATURES_PATH, EDGES_PATH]:
+        if not path.is_file():
+            raise FileNotFoundError(
+                f"Missing required input: {path}"
+            )
 
-    if not EDGES_PATH.exists():
-        raise FileNotFoundError(
-            f"Edges file not found: {EDGES_PATH}"
-        )
+    nodes = pd.read_csv(FEATURES_PATH, low_memory=False)
+    edges = pd.read_csv(EDGES_PATH, low_memory=False)
 
-    nodes = pd.read_csv(FEATURES_PATH)
-    edges = pd.read_csv(EDGES_PATH)
+    required_nodes = {"event_id", "start_time", "end_time"}
+    required_edges = {"source", "target", "distance_meters"}
 
-    required_node_columns = {
-        "event_id",
-        "start_time",
-        "end_time",
-    }
-
-    required_edge_columns = {
-        "source",
-        "target",
-        "distance_meters",
-    }
-
-    missing_nodes = required_node_columns - set(nodes.columns)
-    missing_edges = required_edge_columns - set(edges.columns)
+    missing_nodes = required_nodes - set(nodes.columns)
+    missing_edges = required_edges - set(edges.columns)
 
     if missing_nodes:
         raise ValueError(
-            f"Missing columns in features CSV: {missing_nodes}"
+            f"Missing node columns: {sorted(missing_nodes)}"
         )
 
     if missing_edges:
         raise ValueError(
-            f"Missing columns in edges CSV: {missing_edges}"
+            f"Missing edge columns: {sorted(missing_edges)}"
         )
+
+    if nodes.empty:
+        raise ValueError("No WZDx events found.")
 
     if nodes["event_id"].isna().any():
-        raise ValueError("Some nodes have missing event_id values.")
+        raise ValueError("Missing event IDs.")
+
+    nodes["event_id"] = nodes["event_id"].astype(str)
 
     if nodes["event_id"].duplicated().any():
-        raise ValueError(
-            "Duplicate event_id values found in features CSV."
+        raise ValueError("Duplicate event IDs found.")
+
+    # Parse all timestamps in UTC
+    for col in ["start_time", "end_time"]:
+        nodes[col] = pd.to_datetime(
+            nodes[col],
+            errors="coerce",
+            utc=True
         )
 
-    # Treat IDs consistently as strings when matching nodes to edges.
-    nodes["event_id"] = nodes["event_id"].astype(str)
+    if nodes[["start_time", "end_time"]].isna().any().any():
+        raise ValueError("Invalid timestamps found.")
+
+    if (nodes["start_time"] >= nodes["end_time"]).any():
+        raise ValueError("Invalid event durations found.")
+
+    # Validate edges
+    if edges[["source", "target"]].isna().any().any():
+        raise ValueError("Missing edge endpoints.")
+
     edges["source"] = edges["source"].astype(str)
     edges["target"] = edges["target"].astype(str)
 
-    # Parse timestamps and normalize them to UTC.
-    nodes["start_time"] = pd.to_datetime(
-        nodes["start_time"],
-        utc=True,
-        errors="coerce",
-    )
-
-    nodes["end_time"] = pd.to_datetime(
-        nodes["end_time"],
-        utc=True,
-        errors="coerce",
-    )
-
-    invalid_timestamps = (
-        nodes["start_time"].isna()
-        | nodes["end_time"].isna()
-    )
-
-    if invalid_timestamps.any():
-        count = int(invalid_timestamps.sum())
-        raise ValueError(
-            f"{count} events have invalid start/end timestamps. "
-            "Inspect the source CSV before building snapshots."
-        )
-
-    invalid_intervals = (
-        nodes["start_time"] >= nodes["end_time"]
-    )
-
-    if invalid_intervals.any():
-        count = int(invalid_intervals.sum())
-        raise ValueError(
-            f"{count} events have start_time >= end_time. "
-            "Inspect these records before building snapshots."
-        )
-
-    # Edges must reference events present in the node table.
     known_ids = set(nodes["event_id"])
 
-    unknown_endpoints = (
+    invalid_edges = (
         ~edges["source"].isin(known_ids)
         | ~edges["target"].isin(known_ids)
     )
 
-    if unknown_endpoints.any():
-        count = int(unknown_endpoints.sum())
+    if invalid_edges.any():
         raise ValueError(
-            f"{count} edges reference unknown event IDs."
+            f"{invalid_edges.sum()} edges contain unknown IDs."
         )
 
-    # Remove self-loops and duplicate undirected edges.
-    edges = edges[edges["source"] != edges["target"]].copy()
+    if edges["distance_meters"].isna().any():
+        raise ValueError("Missing edge distances.")
 
-    edges["_u"] = edges[["source", "target"]].min(axis=1)
-    edges["_v"] = edges[["source", "target"]].max(axis=1)
+    # Remove self-loops
+    edges = edges[
+        edges["source"] != edges["target"]
+    ].copy()
 
-    edges = edges.drop_duplicates(subset=["_u", "_v"])
+    # Normalize undirected edge pairs
+    normalized = np.sort(
+        edges[["source", "target"]].to_numpy(dtype=str),
+        axis=1
+    )
 
-    edges = edges.drop(columns=["_u", "_v"]).reset_index(drop=True)
+    edges["source"] = normalized[:, 0]
+    edges["target"] = normalized[:, 1]
+
+    # Remove duplicate edges and sort
+    edges = (
+        edges.drop_duplicates(["source", "target"])
+        .sort_values(["source", "target"])
+        .reset_index(drop=True)
+    )
+
+    nodes = nodes.sort_values("event_id").reset_index(drop=True)
 
     return nodes, edges
 
 
 # ============================================================
-# 3. PREPARE EVENT START/END TIMELINE
+# 3. GENERATE FIXED DAILY SNAPSHOTS
 # ============================================================
 
-def build_event_timeline(nodes):
-    """
-    Return unique timestamps at which at least one event starts
-    or ends.
+def build_snapshots(nodes, edges):
 
-    No fixed 15-minute/hourly grid is created.
-    """
+    # First and last timestamps in the dataset
+    first_day = nodes["start_time"].min().floor("D")
+    final_end = nodes["end_time"].max()
 
-    starts = pd.DataFrame({
-        "timestamp": nodes["start_time"],
-        "event_id": nodes["event_id"],
-        "action": "start",
-    })
-
-    ends = pd.DataFrame({
-        "timestamp": nodes["end_time"],
-        "event_id": nodes["event_id"],
-        "action": "end",
-    })
-
-    timeline = pd.concat(
-        [starts, ends],
-        ignore_index=True,
+    # Generate a fixed timeline, one timestamp per day
+    dates = pd.date_range(
+        start=first_day,
+        end=final_end,
+        freq="D",
+        tz="UTC",
+        inclusive="left"
     )
 
-    # Unique timestamps, ordered chronologically.
-    timestamps = sorted(timeline["timestamp"].unique())
+    if len(dates) == 0:
+        raise ValueError("No valid snapshot dates.")
 
-    return timestamps
+    # Convert timestamps to integer nanoseconds for fast comparisons
+    start_ns = nodes["start_time"].astype("int64").to_numpy()
+    end_ns = nodes["end_time"].astype("int64").to_numpy()
 
+    event_ids = nodes["event_id"].to_numpy()
 
-# ============================================================
-# 4. CREATE CHANGE-DRIVEN SNAPSHOTS
-# ============================================================
+    # Map each event ID to its row position
+    id_to_position = {
+        event_id: i
+        for i, event_id in enumerate(event_ids)
+    }
 
-def create_snapshots(nodes, edges, timestamps):
-    """
-    At each event boundary:
-      1. Determine active events.
-      2. Keep spatial edges whose endpoints are both active.
-      3. Save a snapshot only if the graph structure changed.
+    # Map edge endpoints to node positions
+    src_positions = edges["source"].map(
+        id_to_position
+    ).to_numpy(dtype=int)
 
-    Structural identity is determined by:
-      - active event IDs
-      - active undirected edge pairs
-    """
+    dst_positions = edges["target"].map(
+        id_to_position
+    ).to_numpy(dtype=int)
 
-    SNAPSHOTS_DIR.mkdir(parents=True, exist_ok=True)
+    # For each edge, determine when BOTH events are active
+    edge_start_ns = np.maximum(
+        start_ns[src_positions],
+        start_ns[dst_positions]
+    )
 
-    # Prepare a fast lookup by event ID.
-    nodes = nodes.set_index("event_id", drop=False)
+    edge_end_ns = np.minimum(
+        end_ns[src_positions],
+        end_ns[dst_positions]
+    )
 
-    # Build edge endpoint arrays once.
-    edge_sources = edges["source"].to_numpy()
-    edge_targets = edges["target"].to_numpy()
+    # Create the NEW output folder
+    SNAPSHOTS_DIR.mkdir(
+        parents=True,
+        exist_ok=True
+    )
 
-    # Sort edge rows so snapshots have deterministic output.
-    edges = edges.sort_values(
-        ["source", "target"]
-    ).reset_index(drop=True)
+    # Remove stale snapshots only from the NEW folder
+    for pattern in [
+        "snapshot_*_nodes.csv",
+        "snapshot_*_edges.csv"
+    ]:
+        for path in SNAPSHOTS_DIR.glob(pattern):
+            path.unlink()
 
-    edge_sources = edges["source"].to_numpy()
-    edge_targets = edges["target"].to_numpy()
+    records = []
+    last_active_ids = set()
 
-    # Event start/end maps.
-    start_map = {}
-    end_map = {}
+    interval_ns = int(INTERVAL.value)
 
-    for event_id, row in nodes.iterrows():
-        start_map.setdefault(row["start_time"], []).append(event_id)
-        end_map.setdefault(row["end_time"], []).append(event_id)
+    # ========================================================
+    # 4. PROCESS EVERY CALENDAR DAY
+    # ========================================================
 
-    active_ids = set()
+    for number, day_start in enumerate(dates):
 
-    previous_structure = None
-    snapshot_records = []
+        start_value = int(day_start.value)
+        end_value = start_value + interval_ns
 
-    for timestamp in timestamps:
-        timestamp = pd.Timestamp(timestamp)
-
-        # Half-open intervals:
-        # Events ending at this timestamp are no longer active.
-        for event_id in end_map.get(timestamp, []):
-            active_ids.discard(event_id)
-
-        # Events starting at this timestamp become active.
-        for event_id in start_map.get(timestamp, []):
-            active_ids.add(event_id)
-
-        # Deterministic node order.
-        active_list = sorted(active_ids)
-
-        # Identify edges with both endpoints active.
-        if active_ids:
-            source_active = pd.Series(edge_sources).isin(active_ids).to_numpy()
-            target_active = pd.Series(edge_targets).isin(active_ids).to_numpy()
-            active_edge_mask = source_active & target_active
-            active_edges = edges.loc[active_edge_mask].copy()
-        else:
-            active_edges = edges.iloc[0:0].copy()
-
-        # Canonical graph structure for change detection.
-        structure = (
-            tuple(active_list),
-            tuple(
-                sorted(
-                    (
-                        min(source, target),
-                        max(source, target),
-                    )
-                    for source, target in zip(
-                        active_edges["source"],
-                        active_edges["target"],
-                    )
-                )
-            ),
+        # A node is included if its event is active
+        # at any point during this calendar day
+        active_node_mask = (
+            (start_ns < end_value)
+            & (end_ns > start_value)
         )
 
-        # Skip redundant snapshots if graph structure is identical.
-        if (
-            SAVE_ONLY_STRUCTURAL_CHANGES
-            and structure == previous_structure
-        ):
-            continue
+        # An edge is included only when BOTH events
+        # overlap in time during this day
+        active_edge_mask = (
+            (edge_start_ns < edge_end_ns)
+            & (edge_start_ns < end_value)
+            & (edge_end_ns > start_value)
+        )
 
-        snapshot_number = len(snapshot_records)
-        snapshot_name = f"snapshot_{snapshot_number:05d}"
+        active_nodes = nodes.loc[active_node_mask]
+        active_edges = edges.loc[active_edge_mask]
 
-        # Save active nodes with all their original engineered features.
-        if active_list:
-            active_nodes = (
-                nodes.loc[active_list]
-                .reset_index(drop=True)
-                .copy()
-            )
-        else:
-            active_nodes = nodes.iloc[0:0].reset_index(drop=True).copy()
+        active_ids = set(event_ids[active_node_mask])
 
-        # Remove internal timestamp columns only if you prefer
-        # a leaner file; for now retain them for analysis.
+        snapshot_id = f"snapshot_{number:05d}"
+
+        # Save nodes and edges, including unchanged days
         active_nodes.to_csv(
-            SNAPSHOTS_DIR / f"{snapshot_name}_nodes.csv",
-            index=False,
+            SNAPSHOTS_DIR / f"{snapshot_id}_nodes.csv",
+            index=False
         )
 
         active_edges.to_csv(
-            SNAPSHOTS_DIR / f"{snapshot_name}_edges.csv",
-            index=False,
+            SNAPSHOTS_DIR / f"{snapshot_id}_edges.csv",
+            index=False
         )
 
-        snapshot_records.append({
-            "snapshot_id": snapshot_name,
-            "timestamp_utc": timestamp.isoformat(),
-            "active_node_count": len(active_nodes),
-            "active_edge_count": len(active_edges),
-            "new_nodes_since_previous": (
-                len(active_ids)
-                if previous_structure is None
-                else len(active_ids - set(previous_structure[0]))
+        # Snapshot statistics
+        records.append({
+            "snapshot_id": snapshot_id,
+            "interval_start_utc": day_start.isoformat(),
+            "interval_end_utc": (
+                day_start + INTERVAL
+            ).isoformat(),
+            "active_node_count": int(active_node_mask.sum()),
+            "active_edge_count": int(active_edge_mask.sum()),
+            "new_nodes_since_previous": len(
+                active_ids - last_active_ids
             ),
-            "graph_structure_changed": True,
+            "removed_nodes_since_previous": len(
+                last_active_ids - active_ids
+            )
         })
 
-        previous_structure = structure
+        last_active_ids = active_ids
 
-        if snapshot_number % 100 == 0:
+        # Progress update every 100 snapshots
+        if (number + 1) % 100 == 0 or number == 0:
             print(
-                f"Saved {snapshot_number + 1} snapshots; "
-                f"current timestamp: {timestamp}"
+                f"Saved {number + 1}/{len(dates)} "
+                f"daily snapshots ({day_start.date()})"
             )
 
-    return pd.DataFrame(snapshot_records)
+    # ========================================================
+    # 5. SAVE INDEX AND SUMMARY
+    # ========================================================
+
+    index = pd.DataFrame(records)
+
+    OUTPUT_DIR.mkdir(
+        parents=True,
+        exist_ok=True
+    )
+
+    index.to_csv(
+        OUTPUT_DIR / "snapshot_index.csv",
+        index=False
+    )
+
+    summary = {
+        "input_event_count": len(nodes),
+        "input_spatial_edge_count": len(edges),
+        "saved_snapshot_count": len(index),
+        "first_day_utc": dates[0].isoformat(),
+        "last_day_utc": dates[-1].isoformat(),
+        "snapshot_frequency": "1 day",
+        "snapshot_timezone": "UTC",
+        "node_rule": "event overlaps daily interval [start, end)",
+        "edge_rule": (
+            "both endpoint events simultaneously active "
+            "during daily interval"
+        ),
+        "includes_unchanged_and_empty_days": True
+    }
+
+    with (
+        OUTPUT_DIR / "summary.json"
+    ).open("w", encoding="utf-8") as file:
+        json.dump(summary, file, indent=2)
+
+    return index
 
 
 # ============================================================
-# 5. SAVE INDEX AND SUMMARY
+# 6. MAIN FUNCTION
 # ============================================================
 
 def main():
-    print("Loading WZDx features and spatial graph...")
 
     nodes, edges = load_data()
 
-    print(f"Events loaded: {len(nodes):,}")
-    print(f"Spatial edges loaded: {len(edges):,}")
+    print(
+        f"Loaded {len(nodes):,} event nodes "
+        f"and {len(edges):,} spatial edges."
+    )
 
-    timestamps = build_event_timeline(nodes)
+    print("Creating fixed daily temporal snapshots...")
 
-    print(f"Unique event-boundary timestamps: {len(timestamps):,}")
-    print("Creating change-driven snapshots...")
+    index = build_snapshots(nodes, edges)
 
-    index = create_snapshots(nodes, edges, timestamps)
+    print("\nDaily temporal graph complete.")
+    print(f"Daily snapshots: {len(index):,}")
+    print(f"Output folder: {OUTPUT_DIR}")
 
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    print("\nFirst snapshots:")
+    print(index.head(5).to_string(index=False))
 
-    index_path = OUTPUT_DIR / "snapshot_index.csv"
-    index.to_csv(index_path, index=False)
-
-    summary = {
-        "input_event_count": int(len(nodes)),
-        "input_spatial_edge_count": int(len(edges)),
-        "unique_event_boundary_timestamps": int(len(timestamps)),
-        "saved_snapshot_count": int(len(index)),
-        "earliest_event_start_utc": nodes["start_time"].min().isoformat(),
-        "latest_event_end_utc": nodes["end_time"].max().isoformat(),
-        "snapshot_policy": "event-boundary structural changes",
-        "activity_interval": "start_time <= t < end_time",
-        "timezone": "UTC",
-    }
-
-    summary_path = OUTPUT_DIR / "summary.json"
-    with open(summary_path, "w", encoding="utf-8") as f:
-        json.dump(summary, f, indent=2)
-
-    print("\nTemporal graph generation complete.")
-    print(f"Snapshots saved: {len(index):,}")
-    print(f"Snapshot index: {index_path}")
-    print(f"Summary: {summary_path}")
-    print(f"Snapshot files: {SNAPSHOTS_DIR}")
-
-    if not index.empty:
-        print("\nFirst snapshots:")
-        print(index.head(5).to_string(index=False))
-
-        print("\nSnapshot statistics:")
-        print(
-            index[
-                ["active_node_count", "active_edge_count"]
-            ].describe().to_string()
-        )
+    print("\nNode and edge count statistics:")
+    print(
+        index[
+            ["active_node_count", "active_edge_count"]
+        ].describe().round(2).to_string()
+    )
 
 
 if __name__ == "__main__":

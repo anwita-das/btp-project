@@ -1,0 +1,12 @@
+{
+  "input_event_count": 4181,
+  "input_spatial_edge_count": 44434,
+  "saved_snapshot_count": 1128,
+  "first_day_utc": "2024-11-19T00:00:00+00:00",
+  "last_day_utc": "2027-12-21T00:00:00+00:00",
+  "snapshot_frequency": "1 day",
+  "snapshot_timezone": "UTC",
+  "node_rule": "event overlaps daily interval [start, end)",
+  "edge_rule": "both endpoint events simultaneously active during daily interval",
+  "includes_unchanged_and_empty_days": true
+}

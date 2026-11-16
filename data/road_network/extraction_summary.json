@@ -1,0 +1,23 @@
+{
+    "source": "OpenStreetMap",
+    "input_file": "austin_road_network.osm",
+    "output_file": "road_ways.geojson",
+    "extracted_road_ways": 72402,
+    "skipped_ways": 0,
+    "highway_counts": {
+        "motorway": 1503,
+        "motorway_link": 1303,
+        "secondary": 7103,
+        "primary": 2441,
+        "primary_link": 294,
+        "residential": 18919,
+        "tertiary": 4755,
+        "secondary_link": 1011,
+        "unclassified": 1154,
+        "service": 33257,
+        "trunk_link": 105,
+        "living_street": 20,
+        "trunk": 331,
+        "tertiary_link": 206
+    }
+}

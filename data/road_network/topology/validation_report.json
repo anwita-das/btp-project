@@ -1,0 +1,13 @@
+{
+    "intersection_nodes":105618,
+    "directed_segments":243014,
+    "graph_edges":436849,
+    "weak_components":1827,
+    "largest_component_size":237908,
+    "duplicate_edges":0,
+    "self_loops":0,
+    "invalid_from_references":0,
+    "invalid_to_references":0,
+    "short_segments_under_5m":2900,
+    "long_segments_over_5km":0
+}

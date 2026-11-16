@@ -13,3 +13,8 @@ venv/
 
 # Generated files
 *.log
+
+# OpenStreetMap raw data
+data/raw/*.osm
+data/raw/*.osm.gz
+data/raw/*.pbf

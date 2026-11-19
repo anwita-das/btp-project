@@ -71,7 +71,11 @@ df["duration_over_365_days"] = (
     df["duration_days"] > 365
 ).astype(int)
 
-# Additional time features.
+# Derive all time fields from the parsed timestamps. The input may not
+# contain precomputed UTC components (and should not need them to run).
+df["start_hour_utc"] = start.dt.hour
+df["start_day_of_week_utc"] = start.dt.dayofweek
+df["start_month_utc"] = start.dt.month
 df["start_year_utc"] = start.dt.year
 df["end_hour_utc"] = end.dt.hour
 df["end_day_of_week_utc"] = end.dt.dayofweek

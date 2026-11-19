@@ -1,0 +1,11 @@
+{
+    "static_nodes": 243014,
+    "static_edges": 436849,
+    "snapshots": 1128,
+    "daily_feature_rows": 1913619,
+    "duplicate_node_rows": 0,
+    "all_node_ids_valid": true,
+    "all_feature_values_valid": true,
+    "first_date": "2024-11-19",
+    "last_date": "2027-12-21"
+}

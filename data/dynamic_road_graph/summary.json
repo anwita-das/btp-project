@@ -1,0 +1,27 @@
+{
+    "graph_type": "Persistent directed road graph with daily dynamic node features",
+    "static_road_nodes": 243014,
+    "static_road_edges": 436849,
+    "cleaned_events": 4181,
+    "used_event_road_pairs": 22226,
+    "directed_event_associations": 39724,
+    "daily_snapshots": 1128,
+    "daily_node_feature_rows": 1913619,
+    "daily_feature_columns": [
+        "active_event_count",
+        "high_confidence_event_count",
+        "medium_confidence_event_count",
+        "max_vehicle_impact_score",
+        "mean_vehicle_impact_score",
+        "all_lanes_closed_count",
+        "some_lanes_closed_count",
+        "workers_present_count",
+        "mean_event_duration_hours",
+        "mean_verified_fields_count",
+        "mean_event_geometry_length_km"
+    ],
+    "first_snapshot": "2024-11-19",
+    "last_snapshot": "2027-12-21",
+    "edge_source_column": "from_segment",
+    "edge_target_column": "to_segment"
+}

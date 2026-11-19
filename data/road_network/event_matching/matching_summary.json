@@ -1,0 +1,17 @@
+{
+    "cleaned_event_count": 4181,
+    "events_with_candidates": 4179,
+    "events_with_plausible_matches": 4173,
+    "events_without_candidates": 2,
+    "total_candidate_pairs": 45270,
+    "plausible_event_segment_pairs": 22226,
+    "confidence_distribution": {
+        "high": 18290,
+        "medium": 3936
+    },
+    "distance_statistics_m": {
+        "mean": 3.125,
+        "median": 1.312,
+        "maximum": 29.97
+    }
+}

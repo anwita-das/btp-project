@@ -1,0 +1,25 @@
+{
+    "input_road_ways": 72402,
+    "shared_osm_nodes": 85279,
+    "intersection_nodes": 105618,
+    "physical_road_segments": 136414,
+    "directed_road_segments": 243014,
+    "road_segment_graph_edges": 436849,
+    "isolated_intersection_nodes": 20029,
+    "road_type_counts": {
+        "motorway": 1572,
+        "motorway_link": 1349,
+        "secondary": 13226,
+        "primary": 4390,
+        "primary_link": 326,
+        "residential": 43652,
+        "tertiary": 12837,
+        "secondary_link": 1033,
+        "unclassified": 2954,
+        "service": 54096,
+        "trunk_link": 122,
+        "living_street": 47,
+        "trunk": 597,
+        "tertiary_link": 213
+    }
+}
